@@ -1,0 +1,104 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: bisque;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+section{
+    margin-top: 50px;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 50%;
+    width: 500%;
+    margin: 0 auto;
+}
+
+.btnn{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    padding: 20px 30px;
+}
+
+.card {
+    position: relative;
+    height: 200px;
+    width: 140px;
+    margin: 10px;
+    border: 3px solid black;
+
+}
+.card :active{
+    transform: scale(0.96);
+}
+.card input{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.card input:checked~ .card-content{
+    border-color: rgb(1, 24, 16);
+
+}
+.card .card-content {
+    cursor: pointer;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 3px solid wheat;
+    box-shadow: 0 4px 0 rgba(0,0,0,0.02);
+}
+.card img {
+    position: relative;
+    height: 100%;
+    width: 300px;
+    left: 50%;
+    transform: translate(-50%,0);
+    transition: all ease 0.3s;
+}
+.card:hover img{
+    width: 100%;
+    height: 140px;
+}
+.card:hover .content {
+    bottom: 0;
+}
+.card input:checked~ .card-content img{
+    filter: grayscale(0.4);
+}
+.card input:checked ~ .card-content::before,.card input:checked ~ .card-content::after{
+    content: '';
+    position: absolute;
+    z-index: 1;
+}
+.card-content::before{
+    height: 20px;
+    width: 20px;
+    top: 10px;
+    right: 10px;
+    border: 1px solid wheat;
+    border-radius: 50%;
+    background-color: green;
+}
+.card-content::after{
+    height: 4px;
+    width: 8px;
+    top: 16px;
+    right: 16px;
+    border: 1px solid wheat;
+    border-width: 0 0 2px 2px;
+    transform: rotate(-45deg);
+}
